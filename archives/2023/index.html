@@ -53,10 +53,6 @@
     
     
     
-        
-<link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
-
-    
     
     
 <script src="https://unpkg.com/pace-js@1.2.4/pace.min.js"></script>
@@ -467,28 +463,31 @@
 
 
 
-
-
     
 <script src="https://unpkg.com/valine@1.5.1/dist/Valine.min.js"></script>
 
-    <script type="module">
-        import { init } from "https://unpkg.com/@waline/client@v2/dist/waline.mjs";
+    <script>
+        var GUEST_INFO = ['nick', 'mail', 'link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function (item) {
+            return GUEST_INFO.indexOf(item) > -1
+        });
+        var recordIP = JSON.parse('true');
+        var highlight = JSON.parse('true');
 
-        init({
-          el: '.wcomment',
-          serverURL: 'https://waline-l004chqgt-whs-projects-b6ba0bc1.vercel.app/',
-          lang: 'zh-CN',
-          locale: {},
-          emoji: ["https://unpkg.com/@waline/emojis@1.0.1/weibo","https://unpkg.com/@waline/emojis@1.0.1/alus","https://unpkg.com/@waline/emojis@1.0.1/bilibili","https://unpkg.com/@waline/emojis@1.0.1/qq","https://unpkg.com/@waline/emojis@1.0.1/tieba","https://unpkg.com/@waline/emojis@1.0.1/tw-emoji"],
-          meta: ["nick","mail","link"],
-          requiredMeta: ["nick","mail"],
-          wordLimit: JSON.parse('0'),
-          comment: true,
-          pageSize: JSON.parse('10'),
-          dark: 'html[data-theme="dark"]'
+        new Valine({
+            el: '.vcomment',
+            appId: "HIyGSd0vOHJDopbLfLGQx7M9-gzGzoHsz",
+            appKey: "dHqEVIdbeMs3LV62YduKNayk",
+            placeholder: "Just go go",
+            pageSize: '10',
+            avatar: 'mp',
+            lang: 'zh-cn',
+            recordIP: recordIP,
+            highlight: highlight
         });
     </script>
+
+
 
 
 
