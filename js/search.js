@@ -1,5 +1,5 @@
 // from https://blog.naaln.com/2016/07/hexo-with-algolia/
-$(document).ready(() => {
+$(document).ready(function () {
   const algoliaSettings = CONFIG.algolia;
   const isAlgoliaSettingsValid = algoliaSettings.applicationID && algoliaSettings.apiKey && algoliaSettings.indexName;
 
@@ -15,8 +15,8 @@ $(document).ready(() => {
       algoliaSettings.apiKey,
     ),
     searchFunction: helper => {
-      if ($('#reimu-search-input').find('input').val()) {
-        helper.search();
+      if ($('#algolia-search-input').find('input').val()) {
+          helper.search();
       }
     }
   });
@@ -28,7 +28,7 @@ $(document).ready(() => {
     }),
 
     instantsearch.widgets.searchBox({
-      container: '#reimu-search-input',
+      container: '#algolia-search-input',
       placeholder: algoliaSettings.labels.input_placeholder,
       showReset: false,
       showSubmit: false,
@@ -36,30 +36,30 @@ $(document).ready(() => {
     }),
 
     instantsearch.widgets.hits({
-      container: '#reimu-hits',
+      container: '#algolia-hits',
       templates: {
         item: data => {
           return (
-            '<a href="' + data.permalink + '" class="reimu-hit-item-link">' +
+            '<a href="' + data.permalink + '" class="algolia-hit-item-link">' +
             data._highlightResult.title.value +
             '</a>'
           );
         },
         empty: data => {
           return (
-            '<div id="reimu-hits-empty">' +
+            '<div id="algolia-hits-empty">' +
             algoliaSettings.labels.hits_empty.replace(/\$\{query}/, data.query) +
             '</div>'
           );
         }
       },
       cssClasses: {
-        item: 'reimu-hit-item'
+        item: 'algolia-hit-item'
       }
     }),
 
     instantsearch.widgets.stats({
-      container: '#reimu-stats',
+      container: '#algolia-stats',
       templates: {
         text: data => {
           const stats = algoliaSettings.labels.hits_stats
@@ -67,7 +67,7 @@ $(document).ready(() => {
             .replace(/\$\{time}/, data.processingTimeMS);
           return (
             stats +
-            '<span class="reimu-powered">' +
+            '<span class="algolia-powered">' +
             '  <img src="' + CONFIG.root + 'images/algolia_logo.svg" alt="Algolia" />' +
             '</span>' +
             '<hr />'
@@ -77,10 +77,10 @@ $(document).ready(() => {
     }),
 
     instantsearch.widgets.pagination({
-      container: '#reimu-pagination',
+      container: '#algolia-pagination',
       scrollTo: false,
       showFirst: false,
-      showLast: false,
+      showLast : false,
       cssClasses: {
         list: 'pagination',
         item: 'pagination-item',
@@ -93,14 +93,14 @@ $(document).ready(() => {
 
   search.start();
 
-  $('.popup-trigger').on('click', (e) => {
+  $('.popup-trigger').on('click', function (e) {
     e.stopPropagation();
     $('body').append('<div class="popoverlay">').css('overflow', 'hidden');
     $('.popup').toggle();
-    $('#reimu-search-input').find('input').focus();
+    $('#algolia-search-input').find('input').focus();
   });
 
-  $('.popup-btn-close').click(() => {
+  $('.popup-btn-close').click(function () {
     $('.popup').hide();
     $('.popoverlay').remove();
     $('body').css('overflow', '');
