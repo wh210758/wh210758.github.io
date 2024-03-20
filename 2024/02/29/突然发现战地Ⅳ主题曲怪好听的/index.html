@@ -156,6 +156,8 @@
       <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS 订阅"></a>
     
     
+      <a id="nav-search-btn" class="nav-icon popup-trigger" title="搜索"></a>
+    
     
   </nav>
 </div>
@@ -211,7 +213,12 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://wh210758.github.io/2024/02/29/%E7%AA%81%E7%84%B6%E5%8F%91%E7%8E%B0%E6%88%98%E5%9C%B0%E2%85%A3%E4%B8%BB%E9%A2%98%E6%9B%B2%E6%80%AA%E5%A5%BD%E5%90%AC%E7%9A%84/" data-id="cltzuwayb001arwve3weh3n4v" data-title="突然发现战地Ⅳ主题曲怪好听的" class="article-share-link">分享</a>
+      <a data-url="https://wh210758.github.io/2024/02/29/%E7%AA%81%E7%84%B6%E5%8F%91%E7%8E%B0%E6%88%98%E5%9C%B0%E2%85%A3%E4%B8%BB%E9%A2%98%E6%9B%B2%E6%80%AA%E5%A5%BD%E5%90%AC%E7%9A%84/" data-id="cltzxppn00014egve87jqdjq9" data-title="突然发现战地Ⅳ主题曲怪好听的" class="article-share-link">分享</a>
+      
+        <a href="/2024/02/29/%E7%AA%81%E7%84%B6%E5%8F%91%E7%8E%B0%E6%88%98%E5%9C%B0%E2%85%A3%E4%B8%BB%E9%A2%98%E6%9B%B2%E6%80%AA%E5%A5%BD%E5%90%AC%E7%9A%84/#comments" class="article-comment-link">
+          <span class="post-comments-count valine-comment-count" data-xid="/2024/02/29/%E7%AA%81%E7%84%B6%E5%8F%91%E7%8E%B0%E6%88%98%E5%9C%B0%E2%85%A3%E4%B8%BB%E9%A2%98%E6%9B%B2%E6%80%AA%E5%A5%BD%E5%90%AC%E7%9A%84/" itemprop="commentCount"></span>
+          留言
+        </a>
       
       
       
@@ -257,6 +264,8 @@
 
   
 </article>
+
+  <section id="comments" class="vcomment"></section>
 
 
 
@@ -495,7 +504,33 @@
 
 
 
+  
+<script src="https://npm.webcache.cn/valine@1.5.1/dist/Valine.min.js" data-pjax></script>
 
+  <script data-pjax>
+    var GUEST_INFO = ['nick', 'mail', 'link'];
+    var guest_info = 'nick,mail,link'.split(',').filter((item) => {
+      return GUEST_INFO.indexOf(item) > -1
+    });
+    var recordIP = JSON.parse('true');
+    var highlight = JSON.parse('true');
+    var visitor = JSON.parse('');
+
+    new Valine({
+      el: '.vcomment',
+      appId: "HIyGSd0vOHJDopbLfLGQx7M9-gzGzoHsz",
+      appKey: "dHqEVIdbeMs3LV62YduKNayk",
+      placeholder: "Just go go",
+      pageSize: '10',
+      avatar: 'mp',
+      lang: 'zh-cn',
+      recordIP: recordIP,
+      highlight: highlight,
+      visitor: visitor,
+      requiredFields: guest_info,
+      path: window.location.pathname
+    });
+  </script>
 
 
 
@@ -510,6 +545,36 @@
 
 
   
+<script src="https://npm.webcache.cn/algoliasearch@4.17.1/dist/algoliasearch-lite.umd.js"></script>
+
+  
+<script src="https://npm.webcache.cn/instantsearch.js@4.56.1/dist/instantsearch.production.min.js"></script>
+
+  
+<script src="/js/algolia_search.js"></script>
+
+  <script>
+    var CONFIG = {
+      root: '/',
+      algolia: {
+        applicationID: "",
+        apiKey: "a656312e5ee971066618d3389262940b",
+        indexName: "hexo",
+        hits: {
+          "per_page": parseInt("10")
+        },
+        labels: {
+          "input_placeholder": "搜索.....",
+          "hits_empty": "未发现与 「${query}」相关内容",
+          "hits_stats": "找到${hits}条结果（用时 ${time} ms）"
+        }
+      }
+    };
+  </script>
+
+
+
+  
 <script src="https://npm.webcache.cn/mouse-firework@0.0.4/dist/index.umd.js"></script>
 
   <script>
@@ -518,6 +583,15 @@
 
 
 
+
+
+  <script>
+    function initLive2d() {
+      live2d.init("https://fastly.jsdelivr.net/gh/MliKiowa/plugin-live2d/", {themeTipsPath: ""});
+    }
+  </script>
+  
+<script src="https://fastly.jsdelivr.net/gh/MliKiowa/plugin-live2d/js/live2d-autoload.js" onload="initLive2d &amp;&amp; initLive2d()" async></script>
 
 
 

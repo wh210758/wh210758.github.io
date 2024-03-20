@@ -153,6 +153,8 @@
       <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS 订阅"></a>
     
     
+      <a id="nav-search-btn" class="nav-icon popup-trigger" title="搜索"></a>
+    
     
   </nav>
 </div>
@@ -446,23 +448,26 @@
   
   <div class="post-wrap-right wow fadeInUp">
     
-    <a class="post-link" href="/2024/02/19/%E6%B5%AE%E5%A4%B8/"></a>
+    <a class="post-link" href="/2024/02/20/%E6%96%87%E7%AB%A0%E5%BD%92%E6%A1%A3/"></a>
     
     <div class="post-cover-right">
       
-        <img data-src="/covers/31.webp" data-sizes="auto" alt="浮夸" class="lazyload">
+        
+        
+          <img data-src="/images/banner.jpg" data-sizes="auto" alt="文章归档" class="lazyload">
+        
       
     </div>
     <div class="post-info">
       <div class="post-meta">
-        <span><span class="icon-calendar"></span>2024-02-19</span>
-        <span><span class="icon-pencil"></span>750 字</span>
-        <span><span class="icon-clock"></span>3 分钟</span>
+        <span><span class="icon-calendar"></span>2024-02-20</span>
+        <span><span class="icon-pencil"></span>0 字</span>
+        <span><span class="icon-clock"></span>1 分钟</span>
       </div>
-      <h2 class="post-title">浮夸</h2>
+      <h2 class="post-title">文章归档</h2>
       <article class="post-article">
         
-          为何你的言行举止如此浮夸，是未曾有人注意过你吗？是未曾有人倾听过你吗？是未曾有人理解过你吗？
+          
         
       </article>
     </div>
@@ -690,7 +695,33 @@
 
 
 
+  
+<script src="https://npm.webcache.cn/valine@1.5.1/dist/Valine.min.js" data-pjax></script>
 
+  <script data-pjax>
+    var GUEST_INFO = ['nick', 'mail', 'link'];
+    var guest_info = 'nick,mail,link'.split(',').filter((item) => {
+      return GUEST_INFO.indexOf(item) > -1
+    });
+    var recordIP = JSON.parse('true');
+    var highlight = JSON.parse('true');
+    var visitor = JSON.parse('');
+
+    new Valine({
+      el: '.vcomment',
+      appId: "HIyGSd0vOHJDopbLfLGQx7M9-gzGzoHsz",
+      appKey: "dHqEVIdbeMs3LV62YduKNayk",
+      placeholder: "Just go go",
+      pageSize: '10',
+      avatar: 'mp',
+      lang: 'zh-cn',
+      recordIP: recordIP,
+      highlight: highlight,
+      visitor: visitor,
+      requiredFields: guest_info,
+      path: window.location.pathname
+    });
+  </script>
 
 
 
@@ -705,6 +736,36 @@
 
 
   
+<script src="https://npm.webcache.cn/algoliasearch@4.17.1/dist/algoliasearch-lite.umd.js"></script>
+
+  
+<script src="https://npm.webcache.cn/instantsearch.js@4.56.1/dist/instantsearch.production.min.js"></script>
+
+  
+<script src="/js/algolia_search.js"></script>
+
+  <script>
+    var CONFIG = {
+      root: '/',
+      algolia: {
+        applicationID: "",
+        apiKey: "a656312e5ee971066618d3389262940b",
+        indexName: "hexo",
+        hits: {
+          "per_page": parseInt("10")
+        },
+        labels: {
+          "input_placeholder": "搜索.....",
+          "hits_empty": "未发现与 「${query}」相关内容",
+          "hits_stats": "找到${hits}条结果（用时 ${time} ms）"
+        }
+      }
+    };
+  </script>
+
+
+
+  
 <script src="https://npm.webcache.cn/mouse-firework@0.0.4/dist/index.umd.js"></script>
 
   <script>
@@ -713,6 +774,15 @@
 
 
 
+
+
+  <script>
+    function initLive2d() {
+      live2d.init("https://fastly.jsdelivr.net/gh/MliKiowa/plugin-live2d/", {themeTipsPath: ""});
+    }
+  </script>
+  
+<script src="https://fastly.jsdelivr.net/gh/MliKiowa/plugin-live2d/js/live2d-autoload.js" onload="initLive2d &amp;&amp; initLive2d()" async></script>
 
 
 
